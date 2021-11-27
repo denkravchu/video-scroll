@@ -1,10 +1,10 @@
 class videoScroll {
-    constructor() {
+    constructor(VELOCITY = 1000) {
         this.videos = []
 
         this.PLAYBACKRATE_MIN = 0.15
         this.PLAYBACKRATE_MAX = 15
-        this.VELOCITY_COEF = 1000
+        this.VELOCITY_COEF = VELOCITY
 
         this.SCROLL_EASE = 0.05
 
