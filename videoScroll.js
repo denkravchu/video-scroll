@@ -76,8 +76,6 @@ class videoScroll {
                 video.offsetTop = video.html.getBoundingClientRect().top + window.pageYOffset
                 video.offsetBottom = video.html.getBoundingClientRect().bottom + window.pageYOffset
             }.bind(this), {once: true})
-
-            console.log(this.videos)
         })
     }
 

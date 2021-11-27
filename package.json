@@ -1,5 +1,14 @@
 {
+  "scripts": {
+    "build": "babel videoScroll.js --out-file videoScroll.min.js --presets=@babel/preset-env,babel-preset-minify"
+  },
   "dependencies": {
     "http-server": "^14.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "babel-preset-minify": "^0.5.1"
   }
 }
