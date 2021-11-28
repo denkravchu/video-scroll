@@ -15,12 +15,12 @@ class videoScroll {
         newVideo.classList.add('video')
         if (className !== '') newVideo.classList.add(className)
         newVideo.innerHTML = `
-            <video style="position: absolute; top: 0; left: 0;" preload="auto" plays-inline="" muted="muted">
+            <video style="position: fixed; top: 0; left: 0;" preload="auto" plays-inline="" muted="muted">
                 <source src="${url}" type="video/mp4">
             </video>
         `
         newVideo.style.cssText = `
-            position: sticky;
+            position: static;
             top: 0;
         `
 
