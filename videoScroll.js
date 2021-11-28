@@ -17,10 +17,10 @@ class videoScroll {
         newVideo.classList.add('video')
         if (className !== '') newVideo.classList.add(className)
         newVideo.innerHTML = `
-            <video class="videoBackward" style="position: absolute; top: 0; left: 0;" preload="none" autoplay="" plays-inline="" muted="muted">
+            <video class="videoBackward" style="position: absolute; top: 0; left: 0; opacity: 0; transition: opacity .1s" preload="auto" plays-inline="" muted="muted">
                 <source src="${urlBackward}" type="video/mp4">
             </video>
-            <video class="videoForward" style="position: absolute; top: 0; left: 0;" preload="none" autoplay="" plays-inline="" muted="muted">
+            <video class="videoForward" style="position: absolute; top: 0; left: 0; transition: opacity .1s" preload="auto" plays-inline="" muted="muted">
                 <source src="${urlForward}" type="video/mp4">
             </video>
         `
@@ -126,14 +126,14 @@ class videoScroll {
 
                 if (videoRate >= this.PLAYBACKRATE_MIN & videoRate <= this.PLAYBACKRATE_MAX) {
                     video.videoArray[1].play();
-                    TweenLite.set(video.videoArray[1], { autoAlpha: 1 });
-                    TweenLite.set(video.videoArray[0], { autoAlpha: 0 });
+                    video.videoArray[1].style.opacity = 1
+                    video.videoArray[0].style.opacity = 0
                     video.videoArray[1].playbackRate = Math.abs(videoRate);
                     video.videoArray[0].currentTime = video.videoDuration - video.videoArray[1].currentTime;
                 } else if (videoRate <= -this.PLAYBACKRATE_MIN && videoRate >= -this.PLAYBACKRATE_MAX) {
                     video.videoArray[0].play();
-                    TweenLite.set(video.videoArray[0], { autoAlpha: 1 });
-                    TweenLite.set(video.videoArray[1], { autoAlpha: 0 });
+                    video.videoArray[0].style.opacity = 1
+                    video.videoArray[1].style.opacity = 0
                     video.videoArray[0].playbackRate = Math.abs(videoRate);
                     video.videoArray[1].currentTime = video.videoDuration - video.videoArray[0].currentTime;
                 } else if (videoRate > 0 && videoRate < this.PLAYBACKRATE_MIN) {
