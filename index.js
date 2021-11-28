@@ -1,7 +1,12 @@
 window.onload = function () {
-    const video = new videoScroll(500)
-    video.addVideo('./example.mp4', './example_revearse.mp4') // urlRorward - ссылка на видео, urlBackward - ссылка на это же видео но перевернутое, scrollHeight - как долго можно скроллить видео, locationID - id блока внутрь которого вставить видео, className - класс, который будет повешен на видео
-    video.addVideo( './example.mp4', './example_revearse.mp4', 3000, 'videoHere')
+    // new videoScroll(playback, velocity) параметр velocity вообще можно не использовать, он нужен только для правки погрешностей при делении. А так playback отвечает за скорость
+    // но если например вы выставили playback и получили нужную скорость, но видео не доходит до конца и обрывается, значит увеличивайте velocity, по умолчанию оно равно 0
+    // playback и velocity при инициализации будут одинаковыми для всех видео, но их можно задать каждому конкретному видео
+    const video = new videoScroll(200) //
+    video.addVideo('https://assets.sonos.com/im/default/images/products/roam/roam-exploded-view-black.mp4', null, 'my-special-video', 1000, 100) 
+    // addVideo(url, locationId, className, playback, velocity) 
+    // playback, velocity задает параметры для конкретного видео
+    video.addVideo( 'https://res.cloudinary.com/dd6pyhigu/video/upload/v1587924019/big_buck_bunny_jrvu13.mp4', 'videoHere')
     video.init()
     video.render()
 }
